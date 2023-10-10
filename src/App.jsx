@@ -5,6 +5,7 @@ import "./pages/Homepage/Homepage";
 import Homepage from "./pages/Homepage/Homepage";
 import Header from "./components/Header/Header";
 import CategoryArticle from "./pages/CategoryArticle/CategoryArticle";
+import Auth from "./pages/Auth/Auth";
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Homepage />} />
+        <Route path="/auth" element={<Auth />} />
         <Route path="/category/:categoryName" element={<CategoryArticle />} />
       </Routes>
 

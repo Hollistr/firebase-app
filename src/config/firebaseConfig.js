@@ -7,6 +7,9 @@ import { getAnalytics } from "firebase/analytics";
 // allows you to connect to the db
 import { getFirestore } from "firebase/firestore";
 
+// for auth
+import { getAuth } from "firebase/auth";
+
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -25,3 +28,6 @@ const analytics = getAnalytics(app);
 
 // setup database and export it
 export const db = getFirestore(app);
+
+// setup auth and export it
+export const auth = getAuth(app);
