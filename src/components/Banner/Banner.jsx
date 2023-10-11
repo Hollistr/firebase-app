@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./Banner.css";
 import { collection, getDocs, query, orderBy, limit } from "firebase/firestore";
-import { db } from "../../../config/firebaseConfig";
+import { db } from "../../config/firebaseConfig";
+import { useNavigate } from "react-router-dom";
 
 function Banner() {
   const [mainArticle, setMainArticle] = useState({});
   const [otherArticles, setOtherArticles] = useState([]);
+
+  const navigate = useNavigate();
 
   // get data when banner loads
   useEffect(() => {
@@ -37,6 +40,7 @@ function Banner() {
     <div className="banner-container">
       <div
         className="main-article-container"
+        onClick={() => navigate(`/article/${mainArticle?.id}`)}
         key={mainArticle?.id}
         style={{ backgroundImage: `url(${mainArticle?.imageUrl})` }}
       >
@@ -53,6 +57,7 @@ function Banner() {
             <div
               className="other-article-item"
               key={item.id}
+              onClick={() => navigate(`/article/${item?.id}`)}
               style={{ backgroundImage: `url(${item?.imageUrl})` }}
             >
               <div className="banner-info">
