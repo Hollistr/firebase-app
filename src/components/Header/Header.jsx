@@ -18,6 +18,11 @@ function Header() {
   return (
     <div className="header-container">
       <FaHome className="nav-link" onClick={() => navigate("/")} />
+      {user && (
+        <Link to="/addArticle" className="auth-link">
+          Add Article
+        </Link>
+      )}
       <div className="categories-container">
         {categories.map((item, index) => (
           <Link to={`/category/${item}`} key={index} className="nav-link">
@@ -30,7 +35,9 @@ function Header() {
           <span className="username">
             {user.displayName ? user.displayName : user.email}
           </span>
-          <button className="auth-link" onClick={() => signOut(auth)}>Logout</button>
+          <button className="auth-link" onClick={() => signOut(auth)}>
+            Logout
+          </button>
         </div>
       ) : (
         <Link className="auth-link" to={"/auth"}>
