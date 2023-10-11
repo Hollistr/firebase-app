@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../config/firebaseConfig";
 import Likes from "../../components/Likes/Likes";
+import Comments from "../../components/Comments/Comments";
 
 function ArticleDetail() {
   const [article, setArticle] = useState({});
@@ -36,7 +37,7 @@ function ArticleDetail() {
         <p className="article-description">{article?.ParagraghTwo}</p>
         <p className="article-description">{article?.ParagraghThree}</p>
       </div>
-
+      <Comments articleId={articleId}/>
   </div>;
 }
 
